@@ -6,6 +6,7 @@ import * as reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
 import App from './App.jsx';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const store = Store({ reducers });
 

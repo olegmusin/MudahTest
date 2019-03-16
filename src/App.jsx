@@ -5,13 +5,13 @@ import {
     Redirect,
     Switch,
 } from 'react-router-dom';
-import registerIcons from './services/icons';
+import registerIconsAndFonts from './services/icons';
 import { ListPage, DetailsPage } from './components';
 
 export default class App extends Component {
     constructor() {
         super();
-        registerIcons();
+        registerIconsAndFonts();
     }
     render() {
         return (

@@ -1,0 +1,14 @@
+.item-title {
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 12px;
+    color: #4D4D4D;
+    white-space: normal;
+    padding: 3px;
+}
+
+.item-price {
+    color: #E01A1A;
+    font-family: Roboto;
+    font-weight: 600;
+}

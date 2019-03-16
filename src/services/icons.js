@@ -7,8 +7,9 @@ import {
     faShareAlt,
     faUserCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import WebFont from 'webfontloader';
 
-const registerIcons = () =>
+const registerIconsAndFonts = () => {
     library.add(
         faEnvelope,
         faPhone,
@@ -18,4 +19,11 @@ const registerIcons = () =>
         faUserCircle,
     );
 
-export default registerIcons;
+    WebFont.load({
+        google: {
+            families: ['Roboto:400,600,700'],
+        },
+    });
+};
+
+export default registerIconsAndFonts;
