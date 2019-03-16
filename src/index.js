@@ -4,7 +4,7 @@ import Store from 'redux-store-init';
 import { Provider } from 'react-use-store';
 import * as reducers from './reducers';
 import * as serviceWorker from './serviceWorker';
-import App from './App';
+import App from './App.jsx';
 import './index.css';
 
 const store = Store({ reducers });
