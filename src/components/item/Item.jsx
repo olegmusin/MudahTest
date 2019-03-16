@@ -6,7 +6,7 @@ const Item = (props) => {
     const { title, price } = props.data;
     return (
         <Col md={2} xs={6} className="p-1 mx-auto">
-            <Card className="item-card">
+            <Card>
                 <CardImg
                     top
                     src={`/assets/image/${props.id}.png`}

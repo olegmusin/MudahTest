@@ -5,6 +5,8 @@
     color: #4D4D4D;
     white-space: normal;
     padding: 3px;
+    height: 40px;
+    overflow: hidden;
 }
 
 .item-price {
