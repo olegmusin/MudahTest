@@ -1,22 +1,31 @@
 import React from 'react';
-import { Row, Container } from 'reactstrap';
-import { getImageNumberFromId } from '../details-page/helper';
+import { Row, Container, Card } from 'reactstrap';
 import { useItemsAsyncEndpoint } from '../../services/items';
-import Item from '../item/Item';
+import { Item } from '../../components';
+import './list-page.css';
+
 const ListPage = () => {
     const [items] = useItemsAsyncEndpoint();
+    console.log(items);
     return (
-        <Container>
-            <Row>
-                {items.map((item) => (
-                    <Item
-                        id={getImageNumberFromId(item.id)}
-                        key={item.id}
-                        data={item.attributes}
-                    />
-                ))}
-            </Row>
-        </Container>
+        <div className="list-page">
+            <Card className="items-container">
+                <Container className="">
+                    <span className="list-page-name">LISTING</span>
+                    <Row>
+                        {items.map((item) => {
+                            const id = item.id;
+                            return (
+                                <Item
+                                    data={{ ...item.attributes, id }}
+                                    key={item.id}
+                                />
+                            );
+                        })}
+                    </Row>
+                </Container>
+            </Card>
+        </div>
     );
 };
 

@@ -14,3 +14,10 @@
     font-family: Roboto;
     font-weight: 600;
 }
+
+.item-card,
+.item-card:hover {
+    width: 140px;
+    margin: 11px 3px;
+    cursor: pointer;
+}

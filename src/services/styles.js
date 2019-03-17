@@ -21,7 +21,7 @@ const registerIconsAndFonts = () => {
 
     WebFont.load({
         google: {
-            families: ['Roboto:400,600,700'],
+            families: ['Roboto:400,600,700', 'Open Sans: Semibold'],
         },
     });
 };

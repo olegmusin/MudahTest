@@ -1,0 +1,30 @@
+.header {
+    box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px;
+    background-color: white;
+    height: 80px;
+    width: 100%;
+    padding: 25px 85px;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+}
+
+.header-logo {
+    float: left;
+    width: 140px;
+    height: 35px;
+    margin-right: 75px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li.header-link {
+    float: left;
+    margin: 0 36px;
+    padding-top: 8px;
+    color: #333333;
+    font-family: 'Open Sans';
+    font-size: 14px;
+}

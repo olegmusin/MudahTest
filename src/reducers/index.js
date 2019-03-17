@@ -1,11 +1,8 @@
 import { createReducer } from 'react-use-store';
-import { REDUCERS } from '../constants';
+import { REDUCER } from '../constants';
 
-export const listViewReducer = createReducer(REDUCERS.LIST_REDUCER, {
+export const itemsReducer = createReducer(REDUCER, {
     items: [],
-});
-
-export const detailViewReducer = createReducer(REDUCERS.DETAILS_REDUCER, {
-    item: null,
+    item: { id: null, attributes: {} },
     similarItems: [],
 });
