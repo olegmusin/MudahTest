@@ -3,13 +3,14 @@ import {
     faEnvelope,
     faPhone,
     faComments,
-    faHeart,
     faShareAlt,
     faUserCircle,
+    faFlag,
 } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import WebFont from 'webfontloader';
 
-const registerIconsAndFonts = () => {
+const registerCustomStyling = () => {
     library.add(
         faEnvelope,
         faPhone,
@@ -17,6 +18,7 @@ const registerIconsAndFonts = () => {
         faHeart,
         faShareAlt,
         faUserCircle,
+        faFlag,
     );
 
     WebFont.load({
@@ -26,4 +28,4 @@ const registerIconsAndFonts = () => {
     });
 };
 
-export default registerIconsAndFonts;
+export default registerCustomStyling;

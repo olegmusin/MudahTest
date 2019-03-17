@@ -5,13 +5,13 @@ import {
     Redirect,
     Switch,
 } from 'react-router-dom';
-import registerIconsAndFonts from './services/styles';
+import registerCustomStyling from './services/styles';
 import { ListPage, DetailsPage, Header } from './components';
 
 export default class App extends Component {
     constructor() {
         super();
-        registerIconsAndFonts();
+        registerCustomStyling();
     }
 
     render() {
@@ -21,7 +21,11 @@ export default class App extends Component {
                 <Router>
                     <Switch>
                         <Route exact path="/items" component={ListPage} />
-                        <Route path="/items/:id" component={DetailsPage} />
+                        <Route
+                            exact
+                            path="/items/:id"
+                            component={DetailsPage}
+                        />
                         <Redirect from="/" to="/items" />
                     </Switch>
                 </Router>

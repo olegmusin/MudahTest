@@ -1,10 +1,21 @@
 import React from 'react';
 import useStore from 'react-use-store';
+import { Link } from 'react-router-dom';
 import { REDUCER } from '../../constants';
-import { Col, Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
+import {
+    Row,
+    Col,
+    Card,
+    CardImg,
+    CardText,
+    CardBody,
+    CardTitle,
+} from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getImageNumberFromId } from '../item/helper';
 import { useItemDetailsAsyncEndpoint } from '../../services/items';
-import { ItemDetails } from '../../components';
+import { ItemDetails, SimilarItems } from '../../components';
+import './details-page.css';
 
 const getItemDetails = (id) => {
     const [state] = useStore(REDUCER);
@@ -19,25 +30,62 @@ const getItemDetails = (id) => {
 const DetailsPage = (props) => {
     const { id } = props.match.params;
     const itemData = getItemDetails(id);
-    const { title, price } = itemData.attributes;
+    const { title, price, description } = itemData.attributes;
 
     return (
-        <Card>
-            <Col>
-                <CardImg
-                    top
-                    src={`/assets/image/${getImageNumberFromId(id)}@2x.png`}
-                    alt={id}
-                />
-                <CardBody>
-                    <CardTitle className="item-title">{title}</CardTitle>
-                    <CardText className="item-price">{price}</CardText>
-                </CardBody>
-            </Col>
-            <Col>
-                <ItemDetails data={itemData} />
-            </Col>
-        </Card>
+        <div className="details-page">
+            <Card className="item-details-card">
+                <Row>
+                    <Col md={8} xs={12}>
+                        <CardBody>
+                            <CardText className="item-detais-price">
+                                {`Home > Electronics > Games & Console >`}
+                                <Link to={`/items/${id}`}>{title}</Link>
+                            </CardText>
+                            <CardTitle className="item-details-title">
+                                {title}
+                            </CardTitle>
+                        </CardBody>
+                        <CardImg
+                            width="662px"
+                            src={`/assets/image/${getImageNumberFromId(
+                                id,
+                            )}@2x.png`}
+                            alt={id}
+                        />
+                        <CardBody>
+                            <CardTitle className="item-details-description">
+                                <Row>
+                                    <Col
+                                        md={6}
+                                        xs={6}
+                                        className="item-details-description-header"
+                                    >
+                                        DESCRIPTION
+                                    </Col>
+                                    <Col md={6} xs={6}>
+                                        <div style={{ float: 'right' }}>
+                                            <FontAwesomeIcon icon="flag" />
+                                            <span> Report Ad</span>
+                                        </div>
+                                    </Col>
+                                </Row>
+                                {`${description}`}
+                            </CardTitle>
+                            <CardText className="item-detais-price">
+                                {price}
+                            </CardText>
+                        </CardBody>
+                    </Col>
+                    <Col md={4} xs={12}>
+                        <ItemDetails data={itemData.attributes} />
+                    </Col>
+                </Row>
+                <Row>
+                    <SimilarItems id={id} />
+                </Row>
+            </Card>
+        </div>
     );
 };
 

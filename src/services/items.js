@@ -5,6 +5,7 @@ import { REDUCER, API_LIKE, API_LIST, API_DETAILS } from '../constants';
 
 export const useItemsAsyncEndpoint = () => {
     const [state, commit] = useStore(REDUCER);
+
     const storeData = async () => {
         commit({ items: await fetchData(API_LIST) });
     };
@@ -18,6 +19,7 @@ export const useItemsAsyncEndpoint = () => {
 
 export const useItemDetailsAsyncEndpoint = (id) => {
     const [state, commit] = useStore(REDUCER);
+
     const storeData = async () => {
         commit({ item: await fetchData(`${API_DETAILS}${id}`) });
     };
@@ -27,6 +29,20 @@ export const useItemDetailsAsyncEndpoint = (id) => {
     }, []);
 
     return [state.item];
+};
+
+export const useSimilarItemsAsyncEndpoint = (id) => {
+    const [state, commit] = useStore(REDUCER);
+
+    const storeData = async () => {
+        commit({ similarItems: await fetchData(`${API_LIKE}${id}`) });
+    };
+
+    useEffect(() => {
+        storeData();
+    }, []);
+
+    return [state.similarItems];
 };
 
 const fetchData = async (url) => {

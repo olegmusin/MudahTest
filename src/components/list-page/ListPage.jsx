@@ -1,15 +1,15 @@
 import React from 'react';
-import { Row, Container, Card } from 'reactstrap';
+import { Row, Container, CardDeck } from 'reactstrap';
 import { useItemsAsyncEndpoint } from '../../services/items';
 import { Item } from '../../components';
 import './list-page.css';
 
 const ListPage = () => {
     const [items] = useItemsAsyncEndpoint();
-    console.log(items);
+
     return (
         <div className="list-page">
-            <Card className="items-container">
+            <CardDeck className="items-container">
                 <Container className="">
                     <span className="list-page-name">LISTING</span>
                     <Row>
@@ -19,12 +19,13 @@ const ListPage = () => {
                                 <Item
                                     data={{ ...item.attributes, id }}
                                     key={item.id}
+                                    wrapperClass=""
                                 />
                             );
                         })}
                     </Row>
                 </Container>
-            </Card>
+            </CardDeck>
         </div>
     );
 };

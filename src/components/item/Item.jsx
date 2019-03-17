@@ -7,7 +7,7 @@ import './item.css';
 const Item = (props) => {
     const { id, title, price } = props.data;
     return (
-        <div>
+        <div className={props.wrapperClass}>
             <Link to={`/items/${id}`} style={{ textDecoration: 'none' }}>
                 <Card className="item-card">
                     <CardImg
