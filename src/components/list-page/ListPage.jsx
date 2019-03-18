@@ -19,7 +19,7 @@ const ListPage = () => {
                                 <Item
                                     data={{ ...item.attributes, id }}
                                     key={item.id}
-                                    wrapperClass=""
+                                    wrapperClass="col-xs-6"
                                 />
                             );
                         })}
