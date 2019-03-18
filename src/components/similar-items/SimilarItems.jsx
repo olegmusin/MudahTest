@@ -1,24 +1,16 @@
 import React from 'react';
 import { useSimilarItemsAsyncEndpoint } from '../../services/items';
-import { Row, Col, Button } from 'reactstrap';
-import { Item } from '../../components';
+import { ItemsList } from '../../components';
+import './similar-items.css';
 
 const SimilarItems = (props) => {
     const [items] = useSimilarItemsAsyncEndpoint(props.id);
 
     return (
-        <Row>
-            {items.map((item) => {
-                const id = item.id;
-                return (
-                    <Item
-                        data={{ ...item.attributes, id }}
-                        key={item.id}
-                        wrapperClass="col-md-2"
-                    />
-                );
-            })}
-        </Row>
+        <div className="similar-items">
+            <span className="similar-items-header">SIMILAR ITEMS</span>
+            <ItemsList items={items} />
+        </div>
     );
 };
 

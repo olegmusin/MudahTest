@@ -10,6 +10,9 @@ import {
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import WebFont from 'webfontloader';
 
+/**
+ * Registers additional icons and fonts for easy use inside React app.
+ */
 const registerCustomStyling = () => {
     library.add(
         faEnvelope,

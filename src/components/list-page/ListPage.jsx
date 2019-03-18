@@ -1,7 +1,7 @@
 import React from 'react';
-import { Row, Container, CardDeck } from 'reactstrap';
+import { Row } from 'reactstrap';
+import { ItemsList } from '../../components';
 import { useItemsAsyncEndpoint } from '../../services/items';
-import { Item } from '../../components';
 import './list-page.css';
 
 const ListPage = () => {
@@ -9,23 +9,14 @@ const ListPage = () => {
 
     return (
         <div className="list-page">
-            <CardDeck className="items-container">
-                <Container className="">
-                    <span className="list-page-name">LISTING</span>
-                    <Row>
-                        {items.map((item) => {
-                            const id = item.id;
-                            return (
-                                <Item
-                                    data={{ ...item.attributes, id }}
-                                    key={item.id}
-                                    wrapperClass="col-xs-6"
-                                />
-                            );
-                        })}
-                    </Row>
-                </Container>
-            </CardDeck>
+            <div className="items-container">
+                <Row>
+                    <div>
+                        <span className="list-page-name">LISTING</span>
+                        <ItemsList items={items} />
+                    </div>
+                </Row>
+            </div>
         </div>
     );
 };

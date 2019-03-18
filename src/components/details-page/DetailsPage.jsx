@@ -1,16 +1,7 @@
 import React, { Fragment } from 'react';
 import useStore from 'react-use-store';
-import { Link } from 'react-router-dom';
 import { REDUCER } from '../../constants';
-import {
-    Row,
-    Col,
-    Card,
-    CardImg,
-    CardText,
-    CardBody,
-    CardTitle,
-} from 'reactstrap';
+import { Row, Col, CardImg } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getImageNumberFromId } from '../item/helper';
 import { useItemDetailsAsyncEndpoint } from '../../services/items';
@@ -30,70 +21,79 @@ const getItemDetails = (id) => {
 const DetailsPage = (props) => {
     const { id } = props.match.params;
     const itemData = getItemDetails(id);
-    const { title, price, description } = itemData.attributes;
+    const { title, description } = itemData.attributes;
 
     return (
         <div className="details-page">
-            <Card className="item-details-card">
+            <div className="details-page-card">
                 <Row>
                     <Col md={8} xs={12}>
-                        <CardBody>
-                            <CardText className="item-detais-price">
-                                {`Home > Electronics > Games & Console >`}
-                                <Link to={`/items/${id}`}>{title}</Link>
-                            </CardText>
-                            <CardTitle className="item-details-title">
-                                {title}
-                            </CardTitle>
-                        </CardBody>
-                        <CardImg
-                            width="662px"
-                            src={`/assets/image/${getImageNumberFromId(
-                                id,
-                            )}@2x.png`}
-                            alt={id}
-                        />
-                        <CardBody>
-                            <CardTitle className="item-details-description">
-                                <Row>
-                                    <Col
-                                        md={6}
-                                        xs={6}
-                                        className="item-details-description-header"
+                        <div>
+                            <div>
+                                <div className="details-page-breadcrumbs">
+                                    {`Home > Electronics > Games & Console >`}
+                                    <span
+                                        style={{ textDecoration: 'underline' }}
                                     >
-                                        DESCRIPTION
-                                    </Col>
-                                    <Col md={6} xs={6}>
-                                        <div style={{ float: 'right' }}>
-                                            <FontAwesomeIcon icon="flag" />
-                                            <span> Report Ad</span>
-                                        </div>
-                                    </Col>
-                                </Row>
-                                {description &&
-                                    description
-                                        .split('\\n')
-                                        .map((item, key) => (
-                                            <Fragment key={key}>
-                                                {item}
-                                                <br />
-                                            </Fragment>
-                                        ))}
-                            </CardTitle>
-                            <CardText className="item-detais-price">
-                                {price}
-                            </CardText>
-                        </CardBody>
-                        <hr />
+                                        {title}
+                                    </span>
+                                </div>
+                                <div className="details-page-title">
+                                    {title}
+                                </div>
+                            </div>
+                            <Col className="details-page-photo-frame">
+                                <CardImg
+                                    className="details-page-photo"
+                                    src={`/assets/image/${getImageNumberFromId(
+                                        id,
+                                    )}@2x.png`}
+                                    alt={id}
+                                />
+                            </Col>
+                        </div>
                     </Col>
                     <Col md={4} xs={12}>
                         <ItemDetails data={itemData.attributes} />
                     </Col>
                 </Row>
+                <Row className="details-page-description">
+                    <Col md={8} xs={12}>
+                        <Row>
+                            <Col
+                                md={6}
+                                xs={6}
+                                className="details-page-description-header"
+                            >
+                                DESCRIPTION
+                                <div className="details-page-description-header-underline" />
+                            </Col>
+                            <Col
+                                md={6}
+                                xs={6}
+                                className="details-page-report-ad"
+                            >
+                                <div style={{ float: 'right' }}>
+                                    <FontAwesomeIcon icon="flag" />
+                                    <span> Report Ad</span>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                    <Col md={8} xs={12} className="border-bottom">
+                        {description &&
+                            description.split('\\n').map((item, key) => (
+                                <Fragment key={key}>
+                                    {item}
+                                    <br />
+                                </Fragment>
+                            ))}
+                    </Col>
+                </Row>
                 <Row>
                     <SimilarItems id={id} />
                 </Row>
-            </Card>
+            </div>
         </div>
     );
 };

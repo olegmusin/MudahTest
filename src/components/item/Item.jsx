@@ -7,7 +7,7 @@ import './item.css';
 const Item = (props) => {
     const { id, title, price } = props.data;
     return (
-        <div className={props.wrapperClass}>
+        <Col md={2} xs={6}>
             <Link to={`/items/${id}`} style={{ textDecoration: 'none' }}>
                 <Card className="item-card">
                     <CardImg
@@ -21,7 +21,7 @@ const Item = (props) => {
                     </CardBody>
                 </Card>
             </Link>
-        </div>
+        </Col>
     );
 };
 
