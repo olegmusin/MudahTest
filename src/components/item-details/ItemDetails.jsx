@@ -17,11 +17,11 @@ const ItemDetails = (props) => {
                 <Row>
                     <Col md={6} xs={6}>
                         <FontAwesomeIcon icon={['far', 'heart']} />
-                        Whishlist
+                        <span> Whishlist</span>
                     </Col>
                     <Col md={6} xs={6}>
                         <FontAwesomeIcon icon="share-alt" />
-                        Share
+                        <span> Share</span>
                     </Col>
                 </Row>
                 <Row>

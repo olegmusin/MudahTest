@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import useStore from 'react-use-store';
 import { Link } from 'react-router-dom';
 import { REDUCER } from '../../constants';
@@ -70,12 +70,21 @@ const DetailsPage = (props) => {
                                         </div>
                                     </Col>
                                 </Row>
-                                {`${description}`}
+                                {description &&
+                                    description
+                                        .split('\\n')
+                                        .map((item, key) => (
+                                            <Fragment key={key}>
+                                                {item}
+                                                <br />
+                                            </Fragment>
+                                        ))}
                             </CardTitle>
                             <CardText className="item-detais-price">
                                 {price}
                             </CardText>
                         </CardBody>
+                        <hr />
                     </Col>
                     <Col md={4} xs={12}>
                         <ItemDetails data={itemData.attributes} />

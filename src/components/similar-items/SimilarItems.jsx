@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSimilarItemsAsyncEndpoint } from '../../services/items';
+import { Row, Col, Button } from 'reactstrap';
 import { Item } from '../../components';
 
 const SimilarItems = (props) => {
     const [items] = useSimilarItemsAsyncEndpoint(props.id);
 
     return (
-        <div>
+        <Row>
             {items.map((item) => {
                 const id = item.id;
                 return (
@@ -17,7 +18,7 @@ const SimilarItems = (props) => {
                     />
                 );
             })}
-        </div>
+        </Row>
     );
 };
 

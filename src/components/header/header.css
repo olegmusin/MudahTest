@@ -3,28 +3,36 @@
     background-color: white;
     height: 80px;
     width: 100%;
-    padding: 25px 85px;
     position: fixed;
-    z-index: 9999;
-    top: 0;
 }
 
-.header-logo {
-    float: left;
-    width: 140px;
-    height: 35px;
-    margin-right: 75px;
-}
-
-ul {
-    list-style-type: none;
-}
-
-li.header-link {
-    float: left;
-    margin: 0 36px;
-    padding-top: 8px;
+.navbar-link {
+    white-space: nowrap;
+    padding: 10px 36px 5px;
     color: #333333;
     font-family: 'Open Sans';
     font-size: 14px;
+}
+
+.navbar-dropdown {
+    background-color: white;
+    float: right;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-icon {
+        padding-left: 82px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-dropdown {
+        background-color: whitesmoke;
+        margin-top: 19px;
+    }
+
+    .aligned {
+        padding-top: 16px !important;
+        padding-bottom: 26px !important;
+    }
 }
